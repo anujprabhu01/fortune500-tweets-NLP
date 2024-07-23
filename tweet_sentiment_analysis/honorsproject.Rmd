@@ -64,7 +64,7 @@ library(kableExtra)
 
 
 ```{r}
-setwd("/Users/anujprabhu/dat301/Honors Contract/Tweet Sentiment Analysis")
+setwd("/Users/anujprabhu/dat301/Honors Contract/tweet_sentiment_analysis")
 current_directory <- getwd()
 
 stockerbot_df_path <- file.path(current_directory, "/archive/stockerbot-export.csv")
@@ -153,16 +153,16 @@ stockerbot_df$text <- gsub("@\\w+", "", stockerbot_df$text)
 sent_tweets <- sentiment(stockerbot_df$text, polarity_dt = hash_sentiment_loughran_mcdonald)
 stockerbot_df$sentiment <- sent_tweets$sentiment
 positive_tweets <- head(unique(stockerbot_df[order(sent_tweets$sentiment, decreasing = TRUE), c(2, 9)]), 25)
-write.table(positive_tweets$text, file = "/Users/anujprabhu/dat301/Honors Contract/Tweet Sentiment Analysis/tweets/positive_tweets.txt")
+write.table(positive_tweets$text, file = "/Users/anujprabhu/dat301/Honors Contract/tweet_sentiment_analysis/tweets/positive_tweets.txt")
 
 negative_tweets <- head(unique(stockerbot_df[order(sent_tweets$sentiment), c(2, 9)]), 25)
-write.table(negative_tweets$text, file = "/Users/anujprabhu/dat301/Honors Contract/Tweet Sentiment Analysis/tweets/negative_tweets.txt")
+write.table(negative_tweets$text, file = "/Users/anujprabhu/dat301/Honors Contract/tweet_sentiment_analysis/tweets/negative_tweets.txt")
 
 # Combine positive and negative tweets into a single character vector
 combined_text <- c(negative_tweets$text, positive_tweets$text)
 
 # Create a corpus from the combined text
-pos_neg_corpus <- Corpus(DirSource(directory = "/Users/anujprabhu/dat301/Honors Contract/Tweet Sentiment Analysis/tweets"))
+pos_neg_corpus <- Corpus(DirSource(directory = "/Users/anujprabhu/dat301/Honors Contract/tweet_sentiment_analysis/tweets"))
 
 # Preprocess the corpus
 pos_neg_corpus <- tm_map(pos_neg_corpus, content_transformer(tolower))

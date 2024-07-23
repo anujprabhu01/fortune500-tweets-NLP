@@ -1,8 +1,9 @@
 # ignore .DS Store file
 .DS_Store
 
-#ignore .Rproj.user diectory
-tweet_sentiment_analysis/.Rproj.user/
+#ignore .Rproj.user
+#tweet_sentiment_analysis/.Rproj.user
+*.Rproj.user
 
 #ignore .RData
 *.RData
@@ -12,3 +13,7 @@ tweet_sentiment_analysis/.Rproj.user/
 
 # ignore .Rhistory
 *.Rhistory
+
+# ignore old versions of rmd and html files
+tweet_sentiment_analysis/honors_project.pdf
+tweet_sentiment_analysis/honors_project.html
