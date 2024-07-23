@@ -10,5 +10,5 @@ tweet_sentiment_analysis/.Rproj.user/
 #ignore .Rproj
 *.Rproj
 
-# removed files
-# .Rhistory
+# ignore .Rhistory
+*.Rhistory
